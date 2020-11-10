@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { useUser } from '../lib/useUser'
+import { useAuth } from '../context/auth-context'
 
 function Header () {
-  const user = useUser()
+  const { data, loading } = useAuth()
 
   return (
     <header>
@@ -14,7 +14,7 @@ function Header () {
             </Link>
           </li>
           {
-            user
+            !loading && data && data.user
               ? (
                 <>
                   <li>

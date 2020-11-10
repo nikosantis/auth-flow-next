@@ -1,14 +1,16 @@
-
-import { useUser } from '../lib/useUser'
 import Layout from '../components/layout'
+import AuthenticateApp from '../components/authenticate-app'
+import { useAuth } from '../context/auth-context'
 
 export default function Profile () {
-  const user = useUser({ redirectTo: '/login' })
+  // const user = useAuth()
 
   return (
+    <AuthenticateApp>
     <Layout>
       <h1>Profile</h1>
-      {user && <p>Your session: {JSON.stringify(user)}</p>}
+      {/* {user && <p>Your session: {JSON.stringify(user)}</p>} */}
     </Layout>
+    </AuthenticateApp>
   )
 }
